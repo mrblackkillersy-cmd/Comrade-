@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BLACK KILLER-XMD Pair Site</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: url("https://files.catbox.moe/rqlfwv.jpg") no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Segoe UI', 'Roboto', sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Pink and blue overlay gradient */
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(255, 105, 180, 0.3) 0%, rgba(30, 144, 255, 0.3) 100%);
+      z-index: -1;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 1;
+    }
+
+    .box {
+      width: 350px;
+      height: 380px;
+      padding: 25px;
+      position: relative;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(255, 105, 180, 0.15) 0%, rgba(65, 105, 225, 0.15) 100%);
+      border-radius: 20px;
+      transform: perspective(1000px) rotateY(0deg);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    .box:hover {
+      transform: perspective(1000px) rotateY(5deg);
+      box-shadow: 0 20px 40px rgba(255, 105, 180, 0.3);
+    }
+
+    /* Decorative corner accents */
+    .box::before, .box::after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+    }
+
+    .box::before {
+      top: 10px;
+      left: 10px;
+      border-top: 2px solid #ff69b4;
+      border-left: 2px solid #ff69b4;
+    }
+
+    .box::after {
+      bottom: 10px;
+      right: 10px;
+      border-bottom: 2px solid #4169e1;
+      border-right: 2px solid #4169e1;
+    }
+
+    #text {
+      color: #ffffff;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .input-container input {
+      color: #333333;
+    }
+
+    .centered-text {
+      color: #ffffff;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .main-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      background: linear-gradient(to right, #ff69b4, #4169e1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 1px;
+    }
+
+    .sub-title {
+      font-size: 14px;
+      color: #e0e0ff;
+      margin-bottom: 20px;
+    }
+
+    .input-container {
+      display: flex;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 15px;
+      padding: 5px;
+      gap: 5px;
+      max-width: 320px;
+      width: 100%;
+      margin: 15px 0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .input-container input {
+      border-radius: 12px 0 0 12px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      flex-basis: 75%;
+      padding: 15px;
+      border: none;
+      border-left: 3px solid #ff69b4;
+      color: #333333;
+      transition: all 0.3s ease-in-out;
+      font-size: 16px;
+    }
+
+    .input-container input:focus {
+      border-left: 3px solid #4169e1;
+      outline: none;
+      box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), 0 0 10px rgba(65, 105, 225, 0.3);
+    }
+
+    .input-container input::placeholder {
+      color: #666;
+    }
+
+    .input-container button {
+      flex-basis: 25%;
+      padding: 15px;
+      background: linear-gradient(135deg, #ff69b4 0%, #4169e1 100%);
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: white;
+      border: none;
+      border-radius: 0 12px 12px 0;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .input-container button:hover {
+      background: linear-gradient(135deg, #ff1493 0%, #1e90ff 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+    }
+
+    .input-container button:active {
+      transform: translateY(0);
+    }
+
+    .user-icon {
+      font-size: 40px;
+      color: #ff69b4;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+    }
+
+    #pair {
+      margin-top: 20px;
+      min-height: 50px;
+    }
+
+    #copy {
+      cursor: pointer;
+      padding: 10px 15px;
+      background: linear-gradient(135deg, rgba(255, 105, 180, 0.2) 0%, rgba(65, 105, 225, 0.2) 100%);
+      border-radius: 10px;
+      display: inline-block;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    #copy:hover {
+      background: linear-gradient(135deg, rgba(255, 105, 180, 0.3) 0%, rgba(65, 105, 225, 0.3) 100%);
+      transform: scale(1.05);
+    }
+
+    .waiting-message {
+      color: #ffcc00;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .footer-text {
+      color: #aaaaee;
+      font-size: 12px;
+      margin-top: 20px;
+    }
+
+    /* Floating animation for decorative elements */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .float-element {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 105, 180, 0.2) 0%, transparent 70%);
+      z-index: -1;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .float-1 {
+      top: 10%;
+      left: 10%;
+    }
+
+    .float-2 {
+      bottom: 15%;
+      right: 15%;
+      background: radial-gradient(circle, rgba(65, 105, 225, 0.2) 0%, transparent 70%);
+      animation-delay: 2s;
+    }
+
+    /* Responsive design */
+    @media (max-width: 500px) {
+      .box {
+        width: 90%;
+        height: auto;
+        min-height: 380px;
+        padding: 20px;
+      }
+      
+      .input-container {
+        flex-direction: column;
+        max-width: 100%;
+      }
+
+      .input-container input {
+        border-radius: 12px;
+        width: 100%;
+        margin-bottom: 5px;
+      }
+
+      .input-container button {
+        padding: 12px;
+        border-radius: 12px;
+        width: 100%;
+      }
+      
+      .main-title {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Decorative floating elements -->
+  <div class="float-element float-1"></div>
+  <div class="float-element float-2"></div>
+  
+  <div class="container">
+    <div class="main">
+      <div class="box" id="box">
+        <div id="text">
+          <div class="user-icon">
+            <i class="fa fa-user-secret"></i>
+          </div>
+          <h3 class="centered-text main-title">BLACK KILLER-XMD SESSION SCANNER</h3>
+          <p class="sub-title">
+            Coded by BLACK KILLER
+          </p>
+          <h6 class="centered-text">Enter Your Number with Country Code</h6>
+          
+          <div class="input-container">
+            <input placeholder="+2557xxxx" type="number" id="number" name="">
+            <button id="submit">Submit</button>
+          </div>
+          
+          <a id="waiting-message" class="centered-text waiting-message" style="display: none;">Please wait a while...</a>
+          <br>
+          <main id="pair"></main>
+          
+          <div class="footer-text">
+            Secure pairing system • Pink & Blue Theme
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"></script>
+  <script>
+    let a = document.getElementById("pair");
+    let b = document.getElementById("submit");
+    let c = document.getElementById("number");
+    let box = document.getElementById("box");
+
+    async function Copy() {
+      let text = document.getElementById("copy").innerText;
+      let obj = document.getElementById("copy");
+      await navigator.clipboard.writeText(obj.innerText.replace('CODE: ', ''));
+      obj.innerText = "COPIED!";
+      obj.style = "color:#00ff00;font-weight:bold";
+      setTimeout(() => {
+        obj.innerText = text;
+        obj.style = "color:white;font-weight:bold";
+      }, 800);
+    }
+
+    b.addEventListener("click", async (e) => {
+      e.preventDefault();
+      if (!c.value) {
+        a.innerHTML = '<a style="color:#ff9999;font-weight:bold">Enter your WhatsApp number with Country Code</a><br><br>';
+      } else if (c.value.replace(/[^0-9]/g, "").length < 11) {
+        a.innerHTML = '<a style="color:#ff6666;font-weight:bold">Invalid Phone Number</a><br><br>';
+      } else {
+        const France_King = c.value.replace(/[^0-9]/g, "");
+        let bb = "";
+        let bbc = "";
+        const cc = France_King.split('');
+        cc.map(a => {
+          bbc += a;
+          if (bbc.length == 3) {
+            bb += " " + a;
+          } else if (bbc.length == 8) {
+            bb += " " + a;
+          } else {
+            bb += a;
+          }
+        });
+        c.type = "text";
+        c.value = "+" + bb;
+        c.style = "color:#4169e1;font-size:18px;font-weight:bold";
+        a.innerHTML = '<a style="color:#ffcc00;font-weight:bold">Processing... Please Wait...</a><br><br>';
+        try {
+          let { data } = await axios(`/code?number=${France_King}`);
+          let code = data.code || "Service Unavailable";
+          a.innerHTML = '<font id="copy" onclick="Copy()" style="color:#ff69b4;font-weight:bold">CODE: <span style="color:white;font-weight:bold;letter-spacing:2px;">' + code + '</span></font><br><br><div style="color:#aaa;font-size:12px;">Click code to copy</div>';
+        } catch (error) {
+          a.innerHTML = '<a style="color:#ff6666;font-weight:bold">Connection Error. Try again.</a><br><br>';
+        }
+      }
+    });
+  </script>
+</body>
+</html>

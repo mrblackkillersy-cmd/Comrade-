@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BLACK KILLER-XMD PAIRING SITE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      display: flex; 
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-image: url("https://files.catbox.moe/rqlfwv.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      font-family: 'Segoe UI', 'Roboto', sans-serif;
+      position: relative;
+    }
+
+    /* Overlay for better readability */
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(255, 105, 180, 0.2) 0%, rgba(30, 144, 255, 0.2) 100%);
+      z-index: -1;
+    }
+
+    /* Title styling */
+    .site-title {
+      color: white;
+      font-size: 2.8rem;
+      margin-bottom: 40px;
+      text-align: center;
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(to right, #ff69b4, #4169e1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      padding: 10px 20px;
+      border-radius: 12px;
+      backdrop-filter: blur(5px);
+      background-color: rgba(255, 255, 255, 0.05);
+      font-weight: 700;
+      letter-spacing: 1px;
+      max-width: 90%;
+    }
+
+    /* Button container */
+    .button-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      max-width: 900px;
+      width: 90%;
+      padding: 20px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      background-color: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* New button styling */
+    .btn {
+      position: relative;
+      padding: 18px 25px;
+      background: linear-gradient(135deg, #ff69b4 0%, #4169e1 100%);
+      border: none;
+      border-radius: 12px;
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      box-shadow: 0 4px 15px rgba(65, 105, 225, 0.3);
+      font-family: 'Segoe UI', 'Roboto', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 60px;
+    }
+
+    .btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(255, 105, 180, 0.4);
+      background: linear-gradient(135deg, #ff1493 0%, #1e90ff 100%);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+      box-shadow: 0 4px 12px rgba(65, 105, 225, 0.3);
+    }
+
+    /* Button icons (optional) */
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: 0.5s;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    /* Decorative elements */
+    .decoration {
+      position: absolute;
+      z-index: -1;
+      opacity: 0.7;
+    }
+
+    .circle1 {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 105, 180, 0.3) 0%, transparent 70%);
+      top: 10%;
+      left: 5%;
+    }
+
+    .circle2 {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(65, 105, 225, 0.3) 0%, transparent 70%);
+      bottom: 10%;
+      right: 5%;
+    }
+
+    /* Footer styling */
+    .footer {
+      margin-top: 30px;
+      color: white;
+      font-size: 14px;
+      text-align: center;
+      backdrop-filter: blur(5px);
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 10px 20px;
+      border-radius: 10px;
+      max-width: 600px;
+      width: 80%;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .site-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+      }
+      
+      .button-container {
+        grid-template-columns: 1fr;
+        width: 85%;
+      }
+      
+      .btn {
+        padding: 16px 20px;
+        font-size: 15px;
+      }
+      
+      .circle1, .circle2 {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .site-title {
+        font-size: 1.8rem;
+      }
+      
+      .button-container {
+        padding: 15px;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Decorative background elements -->
+  <div class="decoration circle1"></div>
+  <div class="decoration circle2"></div>
+
+  <!-- Site title -->
+  <h1 class="site-title">BLACK KILLER-XMD PAIRING SITE</h1>
+  
+  <!-- Button container -->
+  <div class="button-container">
+    <button onclick="window.open(https://github.com/mrblackkillersy-cmd/---')" class="btn">Follow on GitHub</button>
+    <button onclick="window.open('/pair')" class="btn">Pair Code</button>
+    <button onclick="window.open('https://github.com/mrblackkillersy-cmd/---')" class="btn">GitHub Repository</button>
+    <button onclick="window.open('https://wa.me/255681613368')" class="btn">Contact Me</button>
+    <button onclick="window.open('https://github.com/mrblackkillersy-cmd/---)" class="btn">Heroku Deploy</button>
+    <button onclick="window.open('https://whatsapp.com/channel/0029VbAhAOJISTkRkIw3Sy1D')" class="btn">WhatsApp Channel</button>
+  </div>
+  
+  <!-- Footer -->
+  <div class="footer">
+    BLACK KILLER-XMD Pairing Site  | All buttons functional
+  </div>
+</body>
+</html>
