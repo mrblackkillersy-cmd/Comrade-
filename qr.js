@@ -57,8 +57,8 @@ router.get('/', async (req, res) => {
 					await delay(800);
 				   let b64data = Buffer.from(data).toString('base64');
 				   let session = await Qr_Code_By_France_King.sendMessage(Qr_Code_By_France_King.user.id, { text: '' + b64data });
-	
-				   let BLACK KILLER-XMD= `
+	  
+			 let BLACK_KILLER_XMD_TEXT= `
 ⫷⫷⫷⫷⫷⫷⫷⫷⫷⫷⫷⫷⫷⫷⫷
 🚀  𝗕𝗢𝗧 𝗖𝗢𝗡𝗘𝗖𝗧𝗘𝗗 𝗦𝗨𝗖𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬🚀
 ⫸⫸⫸⫸⫸⫸⫸⫸⫸⫸⫸⫸⫸⫸⫸
